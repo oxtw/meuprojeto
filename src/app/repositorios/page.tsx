@@ -34,8 +34,8 @@ export default function Repositorios() {
       {repos.map((item) => (
         <div key={item.id}>
           <strong>Repositório: </strong> <a>{item.name}</a>
-          <br />
-          <br />
+          <br/>
+          <br/>
         </div>
       ))}
     </div>
