@@ -8,6 +8,7 @@ export function Header() {
       <Link href="/">Home</Link> <br />
       <Link href="/contatos">Contatos</Link> <br />
       <Link href="/repositorios">Repositorios</Link> <br />
+      <Link href="/dashboard">Painel</Link> <br />
       <br /><br />
       <hr />
     </header>
