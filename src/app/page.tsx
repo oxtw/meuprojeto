@@ -14,7 +14,7 @@ interface DataProps {
 
 async function delayFetch(url: string, delay: number) {
   await new Promise((resolve) => setTimeout(resolve, delay));
-  const response = await fetch(url);
+  const response = await fetch(url, { next:{ revalidate: 60 }});
   return response.json();
 }
 
@@ -26,8 +26,7 @@ async function delayFetch(url: string, delay: number) {
 // }
 
 async function getData() {
-  const data = await delayFetch(
-    "https://api.github.com/users/oxtw/repos",0 );
+  const data = await delayFetch("https://api.github.com/users/oxtw/repos", 0);
   return data;
 }
 
@@ -46,9 +45,9 @@ export default async function Home() {
           <strong>Repositório: </strong> <a>{item.name}</a>
           <br />
           <br />
-          <OwnerRepo 
-          avatar_url={item.owner.avatar_url}
-          name={item.owner.login}
+          <OwnerRepo
+            avatar_url={item.owner.avatar_url}
+            name={item.owner.login}
           />
         </div>
       ))}
